@@ -189,9 +189,7 @@
         accept=".pdf"
         required
       />
-      <h1 style="color: #100420">
-        Tell Us More, Do You Like Football or Not..?
-      </h1>
+      <h1 style="color: #100420">Tell Us More, we are curious to know.</h1>
       <textarea id="remarks" name="remarks" rows="4"></textarea>
 
       <button type="submit">Submit</button>
@@ -328,13 +326,15 @@
       }
 
       function toggleOrgInput(select, row) {
-        const input = document.querySelector(`#exp${row}-org-name`);
-        if (select.value === "self") {
-          input.classList.add("hidden");
-          input.required = false;
-        } else {
+        const input = document.querySelector(
+          `input[name="exp${row}-org-name"]`
+        );
+        if (select.value === "organisation") {
           input.classList.remove("hidden");
           input.required = true;
+        } else {
+          input.classList.add("hidden");
+          input.required = false;
         }
       }
 
