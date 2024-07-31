@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Form</title>
+    <link rel="stylesheet" href="color.css" />
+  </head>
+  <body>
+    <form>
+      <h1 style="text-align: center; color: #100420">
+        Are you proud to be a Freelancer ?? We tooo ..
+      </h1>
+      <h3 style="color: #100420">Did We Know You?? Help Us Here</h3>
+      <label for="name" class="leaps">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email" class="leaps">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone" class="leaps">Phone:</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <h3 style="text-align: center; color: #100420">
+        We know that you've come a long way, Kindly describe How..?
+      </h3>
+      <table id="org-table">
+        <thead>
+          <tr>
+            <th>SL No</th>
+            <th>Organisation Name</th>
+            <th>Date From</th>
+            <th>Date To</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><input type="text" name="org1-name" required /></td>
+            <td>
+              <input
+                type="date"
+                id="date-from-1"
+                name="org1-date-from"
+                onchange="calculateDifference(1)"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="date"
+                id="date-to-1"
+                name="org1-date-to"
+                onchange="calculateDifference(1)"
+                required
+              />
+            </td>
+            <td><input type="text" id="diff-1" name="org1-diff" disabled /></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" onclick="addOrganisationRow()">
+        Add Organisation
+      </button>
+
+      <h3 style="text-align: center; color: #100420">
+        Your Experience as a Freelancer ..?
+      </h3>
+      <p>Note :: Please Mention Self at Last</p>
+      <table id="exp-table">
+        <thead>
+          <tr>
+            <th>SL No</th>
+            <th>Organisation</th>
+            <th>Time (Months)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              <select
+                name="exp1-org"
+                onchange="toggleOrgInput(this, 1)"
+                required
+              >
+                <option value="">Select</option>
+                <option value="self">Self</option>
+                <option value="self">Fiver</option>
+                <option value="self">upwork</option>
+                <option value="organisation">Other Organisations</option>
+              </select>
+              <input
+                type="text"
+                name="exp1-org-name"
+                class="hidden"
+                placeholder="Organisation Name"
+                required
+              />
+            </td>
+            <td><input type="number" name="exp1-time" required /></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" onclick="addExperienceRow()">Add Experience</button>
+
+      <h3 style="text-align: center; color: #100420">
+        In Which Subject Domain You're Profient With...?
+      </h3>
+      <div class="checkbox-group">
+        <label
+          ><input type="checkbox" name="subject" value="math" /><span
+            class="leap"
+            >Marketing And Business Management</span
+          ></label
+        >
+        <label
+          ><input type="checkbox" name="subject" value="science" /><span
+            class="leap"
+            >Finance</span
+          >
+        </label>
+        <label
+          ><input type="checkbox" name="subject" value="english" /><span
+            class="leap"
+            >Technical</span
+          >
+        </label>
+        <label
+          ><input type="checkbox" name="subject" value="english" /><span
+            class="leap"
+            >biology/ Nursing</span
+          >
+        </label>
+
+        <label
+          ><input
+            type="checkbox"
+            id="subject-other"
+            name="subject"
+            value="other"
+            onchange="toggleOtherTextarea()"
+          />
+          <span class="leap">Other</span></label
+        >
+        <textarea
+          id="other-textarea"
+          class="hidden"
+          name="subject-other-text"
+          placeholder="Please specify..."
+        ></textarea>
+      </div>
+
+      <h1 style="color: #100420">Upload Your Current Resume</h1>
+      <label for="cv" class="file-label">Upload Here</label>
+      <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required />
+      <h1 style="color: #100420">Upload Your Sample Works</h1>
+      <label for="sample-work" class="file-label">Upload Here:</label>
+      <input
+        type="file"
+        id="sample-work"
+        name="sample-work"
+        accept=".pdf"
+        required
+      />
+      <h1 style="color: #100420">
+        Tell Us More, Do You like Football or not..?
+      </h1>
+
+      <textarea id="remarks" name="remarks" rows="4"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+    <script src="brain.js"></script>
+  </body>
+</html>
